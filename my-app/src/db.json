@@ -5,24 +5,24 @@
 			"login": "anton",
 			"password": "qwerty123",
 			"registed_at": "2050-09-22",
-			"role_at": ""
+			"role_at": 0
 		}
 	],
 	"roles": [
 		{
-			"id": "0",
+			"id": 0,
 			"name": "Администратор"
 		},
 		{
-			"id": "1",
+			"id": 1,
 			"name": "Модератор"
 		},
 		{
-			"id": "2",
+			"id": 2,
 			"name": "Читатель"
 		},
 		{
-			"id": "3",
+			"id": 3,
 			"name": "Гость"
 		}
 	],
