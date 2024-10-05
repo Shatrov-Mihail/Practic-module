@@ -1,4 +1,4 @@
-export const session = {
+export const sessions = {
 	list: {},
 	create(user) {
 		const hash = Math.random().toFixed(50)
