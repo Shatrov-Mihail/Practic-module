@@ -3,22 +3,15 @@
     {
       "id": "001",
       "login": "anton",
-      "password": "qwerty123",
+      "password": "qwe123",
       "registed_at": "2050-09-22",
       "role_at": 0
     },
     {
-      "id": "b988",
-      "login": "calabash",
-      "password": "qwerty123",
-      "registed_at": "2054-07-04 21:59",
-      "role_id": 2
-    },
-    {
-      "id": "cb72",
-      "login": "ivan",
-      "password": "qwerty123",
-      "registed_at": "2035-11-23 23:06",
+      "id": "8cbb",
+      "login": "zxc",
+      "password": "qwe123",
+      "registed_at": "2048-10-08 22:17",
       "role_id": 2
     }
   ],
