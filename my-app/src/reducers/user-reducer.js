@@ -1,5 +1,5 @@
 import { ACTION_TYPE } from "../actions";
-import { ROLE } from "../bff/constants/role";
+import { ROLE } from "../constants";
 
 const initialUserState = {
   id: null,
@@ -16,8 +16,8 @@ export const userReducer = (state = initialUserState, action) => {
         ...action.payload,
       };
 
-	case ACTION_TYPE.LOGOUT:
-		return initialUserState;
+    case ACTION_TYPE.LOGOUT:
+      return initialUserState;
 
     default:
       return state;

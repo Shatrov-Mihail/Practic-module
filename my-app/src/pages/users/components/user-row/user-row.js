@@ -1,8 +1,8 @@
 import { Icon } from "../../../../components";
 import styled from "styled-components";
-import { TableRow } from "../table-row/table-row";
 import { useState } from "react";
 import { useServerRequest } from "../../../../hooks";
+import { TableRow } from "../table-row/table-row";
 
 const UserRowContainer = ({
   className,

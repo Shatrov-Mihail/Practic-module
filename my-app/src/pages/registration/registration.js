@@ -6,11 +6,11 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { server } from "../../bff";
 import { selectUserRole } from "../../selectors";
-import { Button, H2, Input } from "../../components";
+import { AuthFormError, Button, H2, Input } from "../../components";
 import styled from "styled-components";
 import { setUser } from "../../actions";
-import { ROLE } from "../../bff/constants";
-import { AuthFormError } from "../../components/AuthError/auth-form-error";
+import { ROLE } from "../../constants";
+// import { AuthFormError } from "../../components/AuthError/auth-form-error";
 import { useResetForm } from "../../hooks";
 
 const regFormSchema = yup.object().shape({

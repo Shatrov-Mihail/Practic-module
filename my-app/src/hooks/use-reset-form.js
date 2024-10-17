@@ -7,10 +7,10 @@ export const useResetForm = (reset) => {
 		let currentWasLogout = store.getState().app.wasLogout;
 
 		return store.subscribe(() => {
-		  let prevWasLogout = currentWasLogout;
+		  let previousWasLogout = currentWasLogout;
 		  currentWasLogout = store.getState().app.wasLogout;
 
-		  if (currentWasLogout !== prevWasLogout) {
+		  if (currentWasLogout !== previousWasLogout) {
 			reset();
 		  }
 		});

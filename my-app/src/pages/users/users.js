@@ -3,7 +3,7 @@ import { Content, H2 } from "../../components";
 import { UserRow, TableRow } from "./components";
 import { useServerRequest } from "../../hooks";
 import styled from "styled-components";
-import { ROLE } from "../../bff/constants";
+import { ROLE } from "../../constants";
 
 const UsersContainer = ({ className }) => {
   const [users, setUsers] = useState([]);

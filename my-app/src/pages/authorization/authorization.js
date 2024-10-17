@@ -9,7 +9,7 @@ import { selectUserRole } from "../../selectors";
 import { Button, H2, Input } from "../../components";
 import styled from "styled-components";
 import { setUser } from "../../actions";
-import { ROLE } from "../../bff/constants";
+import { ROLE } from "../../constants";
 import { AuthFormError } from "../../components/AuthError/auth-form-error";
 import { useResetForm } from "../../hooks";
 
