@@ -1,6 +1,6 @@
 export const sanizeContent = (content) => content
-.replaceAll(/\s+/g, ' ');
-.replaceAll('&nbsp', '\n')
+.replaceAll('&nbsp', ' ')
+// .replaceAll(/ +/, ' ')
 .replaceAll('<div><br></div>', '\n')
 .replaceAll('<div>', '\n')
 .replaceAll('</div>', '')
