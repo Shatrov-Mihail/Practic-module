@@ -10,15 +10,14 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
   const requestServer = useServerRequest();
   const navigate = useNavigate();
 
-
   const onPostRemove = (id) => {
     dispatch(
       openModal({
         text: "Удалить статью?",
         onConfirm: () => {
-		  dispatch(removePostAsync(requestServer, id)).then(() => {
-			  navigate('/');
-		  });
+          dispatch(removePostAsync(requestServer, id)).then(() => {
+            navigate("/");
+          });
           dispatch(CLOSE_MODAL);
         },
         onCancel: () => dispatch(CLOSE_MODAL),
@@ -29,14 +28,26 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
   return (
     <div className={className}>
       <div className="published-at">
-        <Icon inactive={true} id="fa-calendar-o" margin="0 7px 0 0" size="18px" />
+        {publishedAt && (
+          <Icon
+            inactive={true}
+            id="fa-calendar-o"
+            margin="0 7px 0 0"
+            size="18px"
+          />
+        )}
         {publishedAt}
       </div>
       <div className="buttons">
         {editButton}
-				{publishedAt && (
-					<Icon  id="fa-trash-o" margin="0 0 0 7px"  size="21px" onClick={() => onPostRemove(id)} />
-				)}
+        {publishedAt && (
+          <Icon
+            id="fa-trash-o"
+            margin="0 0 0 7px"
+            size="21px"
+            onClick={() => onPostRemove(id)}
+          />
+        )}
       </div>
     </div>
   );
