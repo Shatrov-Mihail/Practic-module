@@ -1,4 +1,4 @@
-import {addPost, updatePost } from "../api";
+import { addPost, updatePost } from "../api";
 import { sessions } from "../sessions";
 import { ROLE } from "../constants";
 

@@ -2,9 +2,9 @@ import { setUserRole } from "../api";
 import { sessions } from "../sessions";
 import { ROLE } from "../constants";
 
-export const updateUserRole = async(hash, userId, newUserRoleId) => {
-const accessRoles = [ROLE.ADMIN]
-const access = await sessions.access(hash, accessRoles);
+export const updateUserRole = async (hash, userId, newUserRoleId) => {
+  const accessRoles = [ROLE.ADMIN];
+  const access = await sessions.access(hash, accessRoles);
 
   if (!access) {
     return {
@@ -12,12 +12,10 @@ const access = await sessions.access(hash, accessRoles);
       res: null,
     };
   }
-setUserRole(userId, newUserRoleId);
+  setUserRole(userId, newUserRoleId);
 
-	return {
-		error: null,
-		res: true,
-	};
-}
-
-
+  return {
+    error: null,
+    res: true,
+  };
+};

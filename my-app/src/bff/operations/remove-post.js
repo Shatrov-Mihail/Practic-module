@@ -19,9 +19,11 @@ export const removePost = async (hash, id) => {
 
   const comments = await getComments(id);
 
-  await Promise.all(comments.map(({ id: commentId }) => deleteComment(commentId)));
+  await Promise.all(
+    comments.map(({ id: commentId }) => deleteComment(commentId))
+  );
 
-  await deleteComment(id)
+  await deleteComment(id);
 
   return {
     error: null,
