@@ -6,11 +6,11 @@ import { Main, Authorization, Post, Registration, Users } from "./pages";
 import { setUser } from "./actions";
 import { useLayoutEffect } from "react";
 
-
 const AppColumn = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  	position: relative;
   width: 1000px;
   min-height: 100vh;
   background-color: #fff;
@@ -54,7 +54,7 @@ export const Blog = () => {
         </Routes>
       </Page>
       <Footer />
-	  <Modal />
+      <Modal />
     </AppColumn>
   );
 };
