@@ -4,8 +4,12 @@ import styled from "styled-components";
 const SearchContainer = ({ className, searchPhrase, onChange }) => {
   return (
     <div className={className}>
-      <Input value={searchPhrase} placeholder="Поиск по заголовку..."  onChange={onChange}/>
-      <Icon inactive={true} id="fa-search"  size="21px" />
+      <Input
+        value={searchPhrase}
+        placeholder="Поиск по заголовку..."
+        onChange={onChange}
+      />
+      <Icon inactive={true} id="fa-search" size="21px" />
     </div>
   );
 };

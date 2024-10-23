@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import { Content, H2 } from "../../components";
+import { PrivateContent, H2 } from "../../components";
+import { useSelector } from "react-redux";
+import { selectUserRole } from "../../selectors";
 import { UserRow, TableRow } from "./components";
 import { useServerRequest } from "../../hooks";
+import { checkAccess } from "../../utils";
 import styled from "styled-components";
 import { ROLE } from "../../constants";
 
@@ -10,10 +13,15 @@ const UsersContainer = ({ className }) => {
   const [roles, setRoles] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
+  const userRole = useSelector(selectUserRole);
 
   const requestServer = useServerRequest();
 
   useEffect(() => {
+    if (!checkAccess([ROLE.ADMIN], userRole)) {
+      return;
+    }
+
     Promise.all([
       requestServer("fetchUsers"),
       requestServer("fetchRoles"),
@@ -25,17 +33,21 @@ const UsersContainer = ({ className }) => {
       setUsers(usersRes.res);
       setRoles(rolesRes.res);
     });
-  }, [requestServer, shouldUpdateUserList]);
+  }, [requestServer, shouldUpdateUserList, userRole]);
 
   const onUserRemove = (userId) => {
+    if (!checkAccess([ROLE.ADMIN], roles)) {
+      return;
+    }
+
     requestServer("removeUser", userId).then(() => {
       setShouldUpdateUserList(!shouldUpdateUserList);
     });
   };
 
   return (
-    <div className={className}>
-      <Content error={errorMessage}>
+	  <PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
+		  <div className={className}>
         <H2>Пользователи</H2>
         <div>
           <TableRow>
@@ -51,12 +63,12 @@ const UsersContainer = ({ className }) => {
               registeredAt={registeredAt}
               roleId={roleId}
               roles={roles.filter(({ id: roleId }) => roleId !== ROLE.GUEST)}
-			  onUserRemove={() => onUserRemove(id)}
+              onUserRemove={() => onUserRemove(id)}
             />
           ))}
         </div>
-      </Content>
     </div>
+      </PrivateContent>
   );
 };
 
