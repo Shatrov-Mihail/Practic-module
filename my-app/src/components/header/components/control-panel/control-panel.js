@@ -9,10 +9,11 @@ import {
   selectUserSession,
 } from "../../../../selectors";
 import { logout } from "../../../../actions";
+import { checkAccess } from "../../../../utils";
 
 const RightAligned = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 `;
 
@@ -23,15 +24,17 @@ const UserName = styled.div`
 
 const ControlPanelContainer = ({ className }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const roleId = useSelector(selectUserRole);
   const login = useSelector(selectUserLogin);
-  const dispatch = useDispatch();
   const session = useSelector(selectUserSession);
 
   const onLogout = () => {
-	dispatch(logout(session));
-	sessionStorage.removeItem("userData")
+    dispatch(logout(session));
+    sessionStorage.removeItem("userData");
   };
+
+  const isAdmin = checkAccess([ROLE.ADMIN], roleId);
 
   return (
     <div className={className}>
@@ -43,19 +46,26 @@ const ControlPanelContainer = ({ className }) => {
         ) : (
           <>
             <UserName>{login}</UserName>
-            <Icon id="fa-sign-out" onClick={onLogout} />
+            <Icon id="fa-sign-out" margin="0 0 0 10px" onClick={onLogout} />
           </>
         )}
       </RightAligned>
       <RightAligned>
-        <Icon id="fa-backward" onClick={() => navigate(-1)} />
-
-        <Link to="/post">
-          <Icon id="fa-file-text-o" />
-        </Link>
-        <Link to="/users">
-          <Icon id="fa-users" />
-        </Link>
+        <Icon
+          id="fa-backward"
+          margin="10px 0 0 0"
+          onClick={() => navigate(-1)}
+        />
+        {isAdmin && (
+          <>
+            <Link to="/post">
+              <Icon id="fa-file-text-o" margin="10px 0 0 16px" />
+            </Link>
+            <Link to="/users">
+              <Icon id="fa-users" margin="10px 0 0 16px" />
+            </Link>
+          </>
+        )}
       </RightAligned>
     </div>
   );

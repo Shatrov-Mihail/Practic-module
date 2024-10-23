@@ -1,12 +1,12 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import { savePostAsync } from "../../../../actions";
 import { Icon, Input } from "../../../../components";
-import { useServerRequest } from "../../../../hooks";
 import { SpecialPanel } from "../special-panel/special-panel";
+import { useServerRequest } from "../../../../hooks";
+import { savePostAsync } from "../../../../actions";
 import { sanizeContent } from "./utils";
+import styled from "styled-components";
 
 const PostFormContainer = ({
   className,
@@ -14,11 +14,12 @@ const PostFormContainer = ({
 }) => {
   const [imageUrlValue, setImageUrlValue] = useState(imageUrl);
   const [titleValue, setTitleValue] = useState(title);
-
   const contentRef = useRef(null);
 
   useLayoutEffect(() => {
-	setImageUrlValue()}, [imageUrl, title]);
+	setImageUrlValue(imageUrl)
+	setTitleValue(title)
+  }, [imageUrl, title]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

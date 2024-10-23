@@ -38,6 +38,7 @@ export const Pagination = styled(PaginationContainer)`
     width: 100%;
     hight: 32px;
     font-size: 18px;
+	margin: 0 5px;
     font-weight: 500;
     line-height: 26px;
     border: 1px solid #000;
