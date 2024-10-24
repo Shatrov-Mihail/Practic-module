@@ -25,10 +25,13 @@ const FooterContainer = ({ className }) => {
         <div>web@devolaper.com</div>
       </div>
       <div>
-
-        <p>Город: {city}, {new Date().toLocaleString('ru', {day: 'numeric', month: 'long'})}</p>
-        <p>Температура: {temperature}°C</p>
-        <p>Погода: {weather}</p>
+        <div>
+			{city}, {' '}
+			{new Date().toLocaleString('ru', {day: 'numeric', month: 'long'})}
+			</div>
+        <div>
+			{temperature} градусов, {weather}
+		</div>
       </div>
     </div>
   );
@@ -41,7 +44,7 @@ export const Footer = styled(FooterContainer)`
   width: 1000px;
   height: 120px;
   padding: 20px 40px;
+  font-weight: bold;
   background-color: rgb(255, 255, 255);
   box-shadow: rgb(0, 0, 0) 0px 3px 11px;
-  font-weight: bold;
 `;

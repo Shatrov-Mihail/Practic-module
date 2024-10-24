@@ -7,6 +7,7 @@ import { useServerRequest } from "../../../../hooks";
 import { savePostAsync } from "../../../../actions";
 import { sanizeContent } from "./utils";
 import styled from "styled-components";
+import { PROP_TYPE } from "../../../../constants";
 
 const PostFormContainer = ({
   className,
@@ -87,3 +88,7 @@ export const PostForm = styled(PostFormContainer)`
     border: 1px solid #000;
   }
 `;
+
+PostForm.propTypes = {
+  post: PROP_TYPE.POST.isRequired,
+}

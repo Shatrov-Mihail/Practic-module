@@ -5,13 +5,12 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { server } from "../../bff";
-import { selectUserRole } from "../../selectors";
 import { AuthFormError, Button, H2, Input } from "../../components";
-import styled from "styled-components";
-import { setUser } from "../../actions";
-import { ROLE } from "../../constants";
-// import { AuthFormError } from "../../components/AuthError/auth-form-error";
 import { useResetForm } from "../../hooks";
+import { setUser } from "../../actions";
+import { selectUserRole } from "../../selectors";
+import { ROLE } from "../../constants";
+import styled from "styled-components";
 
 const regFormSchema = yup.object().shape({
   login: yup

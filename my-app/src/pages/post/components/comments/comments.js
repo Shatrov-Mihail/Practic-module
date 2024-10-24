@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Icon } from "../../../../components";
@@ -5,7 +6,7 @@ import { Comment } from "./components";
 import { useServerRequest } from "../../../../hooks";
 import { selectUserId, selectUserRole } from "../../../../selectors";
 import { addCommentAsync } from "../../../../actions";
-import { ROLE } from "../../../../constants";
+import { PROP_TYPE, ROLE } from "../../../../constants";
 import styled from "styled-components";
 
 const CommentsContainer = ({ className, comments, postId }) => {
@@ -20,11 +21,11 @@ const CommentsContainer = ({ className, comments, postId }) => {
     setNewComment("");
   };
 
-  const isGiest = userRole === ROLE.GUEST;
+  const isGuest = userRole === ROLE.GUEST;
 
   return (
     <div className={className}>
-      {!isGiest && (
+      {!isGuest && (
         <div className="new-comment">
           <textarea
             name="comment"
@@ -73,3 +74,8 @@ export const Comments = styled(CommentsContainer)`
     font-size: 18px;
   }
 `;
+
+Comments.propTypes = {
+  comments: PropTypes.arrayOf(PROP_TYPE.COMMENT).isRequired,
+  postId: PropTypes.string.isRequired,
+};

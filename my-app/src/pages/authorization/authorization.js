@@ -32,8 +32,8 @@ const authFormSchema = yup.object().shape({
 });
 
 const StyledLink = styled(Link)`
+text-align: center;
   text-decoration: underline;
-  text-align: center;
   margin: 20px 0;
   font-size: 18px;
 `;
@@ -60,6 +60,7 @@ const AuthorizationContainer = ({ className }) => {
   const roleId = useSelector(selectUserRole);
 
   useResetForm(reset);
+  
   const onSubmit = ({ login, password }) => {
     server.authorize(login, password).then(({ error, res }) => {
       if (error) {

@@ -20,14 +20,15 @@ const HeaderContainer = ({ className }) => (
 );
 
 export const Header = styled(HeaderContainer)`
+display: flex;
+justify-content: space-between;
+position: fixed;
+top: 0;
+width: 1000px;
   height: 120px;
   padding: 20px 40px;
-  justify-content: space-between;
-  display: flex;
-  width: 1000px;
-  box-shadow: 0px -5px 17px;
   background-color: #fff;
-  top: 0;
-  position: fixed;
+  box-shadow: 0px -2px 17px #000;
   z-index: 10;
 `;
+

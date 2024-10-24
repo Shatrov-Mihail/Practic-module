@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { PrivateContent, H2 } from "../../components";
 import { useSelector } from "react-redux";
-import { selectUserRole } from "../../selectors";
 import { UserRow, TableRow } from "./components";
 import { useServerRequest } from "../../hooks";
+import { selectUserRole } from "../../selectors";
 import { checkAccess } from "../../utils";
-import styled from "styled-components";
 import { ROLE } from "../../constants";
+import styled from "styled-components";
 
 const UsersContainer = ({ className }) => {
   const [users, setUsers] = useState([]);
