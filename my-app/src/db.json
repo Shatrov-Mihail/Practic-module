@@ -12,7 +12,7 @@
       "login": "sss",
       "password": "qwe123",
       "registed_at": "2059-09-18 16:12",
-      "role_id": 2
+      "role_id": 0
     },
     {
       "id": "5c1d",
@@ -149,20 +149,6 @@
       "content": "gfdaer"
     },
     {
-      "id": "a14e",
-      "author_id": "001",
-      "post_id": "001",
-      "published_at": "2045-06-07 07:18",
-      "content": "gerghert"
-    },
-    {
-      "id": "4b96",
-      "author_id": "001",
-      "post_id": "001",
-      "published_at": "2038-12-22 09:44",
-      "content": "gewrthrtwh"
-    },
-    {
       "id": "405a",
       "author_id": "001",
       "post_id": "001",
@@ -196,7 +182,26 @@
       "post_id": "80a2",
       "published_at": "2046-03-06 21:55",
       "content": "ndtyyum"
+    },
+    {
+      "id": "2b80",
+      "author_id": "e6cc",
+      "post_id": "001",
+      "published_at": "2039-08-08 15:58",
+      "content": "hfjhtyj"
     }
   ],
-  "sessions": []
+  "sessions": [
+    {
+      "id": "46a6",
+      "hash": "0.99039004584151291155080798489507287740707397460938",
+      "user": {
+        "id": "001",
+        "login": "anton",
+        "password": "qwe123",
+        "roleId": 0,
+        "registedAt": "2050-09-22"
+      }
+    }
+  ]
 }

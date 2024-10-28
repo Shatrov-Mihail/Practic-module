@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { server } from "../../bff";
-import { Button, FormErrorMessage, H2, Input } from "../../components";
+import { Button, AuthFormError, H2, Input } from "../../components";
 import { setUser } from "../../actions";
 import { selectUserRole } from "../../selectors";
 import styled from "styled-components";
@@ -110,7 +110,7 @@ const RegistrationContainer = ({ className }) => {
         <Button type="submit" disabled={!!formError}>
           Зарегистрироваться
         </Button>
-        {errorMessage && <FormErrorMessage>{errorMessage}</FormErrorMessage>}
+        {errorMessage && <AuthFormError>{errorMessage}</AuthFormError>}
       </form>
     </div>
   );

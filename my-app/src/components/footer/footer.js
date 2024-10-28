@@ -8,43 +8,51 @@ const FooterContainer = ({ className }) => {
 
   useEffect(() => {
     fetch(
-      "https://api.openweathermap.org/data/2.5/weather?q=Moscow&units=metric&lang=ru&appid=6356be1f522d6744d72292e1f744b976"
+      "https://api.openweathermap.org/data/2.5/weather?q=Moscow&units=metric&lang=ru&appid=0f69d1fdccc992232293c878d090a877"
     )
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then(({ name, main, weather }) => {
         setCity(name);
         setTemperature(Math.round(main.temp));
         setWeather(weather[0].description);
+      })
+      .catch((error) => {
+        console.error("Ошибка при получении данных о погоде:", error);
       });
   }, []);
 
   return (
-    <footer className={className}>
+    <div className={className}>
       <div>
         <div>Блог веб-разработчика</div>
-        <div>web@developer.ru</div>
+        <div>web@devolaper.com</div>
       </div>
       <div>
         <div>
-          {city},{" "}
-          {new Date().toLocaleString("ru", { day: "numeric", month: "long" })}
-        </div>
+			{city}, {' '}
+			{new Date().toLocaleString('ru', {day: 'numeric', month: 'long'})}
+			</div>
         <div>
-          {temperature}&deg;, {weather}
-        </div>
+			{temperature} градусов, {weather}
+		</div>
       </div>
-    </footer>
+    </div>
   );
 };
 
 export const Footer = styled(FooterContainer)`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  font-weight: bold;
+  align-items: center;
   width: 1000px;
   height: 120px;
-  background-color: #fff;
   padding: 20px 40px;
-  box-shadow: 0 2px 18px #000;
+  font-weight: bold;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(0, 0, 0) 0px 3px 11px;
 `;
