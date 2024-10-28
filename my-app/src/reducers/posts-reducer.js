@@ -1,12 +1,11 @@
+const initialPostsState = {};
 
-
-const initialPostsState = {
-
+export const postsReducer = (state = initialPostsState, { type, payload }) => {
+  switch (type) {
+    case "": {
+      break;
+    }
+    default:
+      return initialPostsState;
+  }
 };
-
-export const postsReducer = (state = initialPostsState, action) => {
-	switch (action.type) {
-		default:
-			return state;
-	}
-}

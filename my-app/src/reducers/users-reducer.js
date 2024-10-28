@@ -1,11 +1,11 @@
+const initialUsersState = {};
 
-
-const initialUsersState = {
+export const usersReducer = (state = initialUsersState, { type, payload }) => {
+  switch (type) {
+    case "": {
+      break;
+    }
+    default:
+      return initialUsersState;
+  }
 };
-
-export const usersReducer = (state = initialUsersState, action) => {
-	switch (action.type) {
-		default:
-			return state;
-	}
-}

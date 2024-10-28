@@ -11,14 +11,13 @@ import styled from "styled-components";
 
 const PostContainer = ({ className }) => {
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const params = useParams();
-  const [isLoading, setIsLoading] = useState(true);
   const isCreating = !!useMatch("/post");
   const isEditing = !!useMatch("/post/:id/edit");
   const requestServer = useServerRequest();
   const post = useSelector(selectPost);
-
 
   useLayoutEffect(() => {
     dispatch(RESET_POST_DATA);
@@ -29,16 +28,16 @@ const PostContainer = ({ className }) => {
       setIsLoading(false);
       return;
     }
+
     dispatch(loadPostAsync(requestServer, params.id)).then((postData) => {
       setError(postData.error);
       setIsLoading(false);
     });
-  }, [dispatch, requestServer, params.id, isCreating]);
+  }, [dispatch, isCreating, params.id, requestServer]);
 
   if (isLoading) {
     return null;
   }
-
 
   const SpecificPostPage =
     isCreating || isEditing ? (

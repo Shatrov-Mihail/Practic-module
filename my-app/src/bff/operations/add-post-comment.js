@@ -10,7 +10,7 @@ export const addPostComment = async (hash, userId, postId, content) => {
 
   if (!access) {
     return {
-      error: "Доступ запрещён",
+      error: "Доступ запрещен",
       res: null,
     };
   }
@@ -19,10 +19,13 @@ export const addPostComment = async (hash, userId, postId, content) => {
 
   const post = await getPost(postId);
 
-  const commentsWithAuthor = getPostCommentsWithAuthor(postId);
+  const commentsWithAuthor = await getPostCommentsWithAuthor(postId);
 
   return {
     error: null,
-    res: { ...post, comments: commentsWithAuthor },
+    res: {
+      ...post,
+      comments: commentsWithAuthor,
+    },
   };
 };

@@ -5,7 +5,7 @@ import { Icon, Input } from "../../../../components";
 import { SpecialPanel } from "../special-panel/special-panel";
 import { useServerRequest } from "../../../../hooks";
 import { savePostAsync } from "../../../../actions";
-import { sanizeContent } from "./utils";
+import { sanitizeContent } from "./utils";
 import styled from "styled-components";
 import { PROP_TYPE } from "../../../../constants";
 
@@ -18,16 +18,17 @@ const PostFormContainer = ({
   const contentRef = useRef(null);
 
   useLayoutEffect(() => {
-	setImageUrlValue(imageUrl)
-	setTitleValue(title)
+    setImageUrlValue(title);
+    setTitleValue(title);
   }, [imageUrl, title]);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const requestServer = useServerRequest();
 
+  const navigate = useNavigate();
+
   const onSave = () => {
-    const newContent = sanizeContent(contentRef.current.innerHTML);
+    const newContent = sanitizeContent(contentRef.current.innerHTML);
 
     dispatch(
       savePostAsync(requestServer, {
@@ -39,28 +40,24 @@ const PostFormContainer = ({
     ).then(({ id }) => navigate(`/post/${id}`));
   };
 
-  const onImageChange = ({ target }) => setImageUrlValue(target.value);
-  const onTitleChange = ({ target }) => setTitleValue(target.value);
-
   return (
     <div className={className}>
       <Input
+        onChange={({ target }) => setImageUrlValue(target.value)}
         value={imageUrlValue}
-        placeholder="Ссылка на изображение"
-        onChange={onImageChange}
+        placeholder="Изображение..."
       />
-      <Input value={titleValue} placeholder="Заголовок" onChange={onTitleChange} />
+      <Input
+        onChange={({ target }) => setTitleValue(target.value)}
+        value={titleValue}
+        placeholder="Заголовок..."
+      />
       <SpecialPanel
+        margin="20px 0"
         id={id}
         publishedAt={publishedAt}
-        margin="20px 0"
         editButton={
-          <Icon
-            id="fa-floppy-o"
-            margin="0 10px 0 0"
-            size="21px"
-            onClick={onSave}
-          />
+          <Icon isButton={true} id="floppy-o" size="21px" onClick={onSave} />
         }
       />
       <div
@@ -91,4 +88,4 @@ export const PostForm = styled(PostFormContainer)`
 
 PostForm.propTypes = {
   post: PROP_TYPE.POST.isRequired,
-}
+};

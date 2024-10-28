@@ -8,7 +8,7 @@ const FooterContainer = ({ className }) => {
 
   useEffect(() => {
     fetch(
-      "https://api.openweathermap.org/data/2.5/weather?q=Moscow&units=metric&lang=ru&appid=0f69d1fdccc992232293c878d090a877"
+      "https://api.openweathermap.org/data/2.5/weather?q=Moscow&units=metric&lang=ru&appid=6356be1f522d6744d72292e1f744b976"
     )
       .then((res) => res.json())
       .then(({ name, main, weather }) => {
@@ -19,32 +19,32 @@ const FooterContainer = ({ className }) => {
   }, []);
 
   return (
-    <div className={className}>
+    <footer className={className}>
       <div>
         <div>Блог веб-разработчика</div>
-        <div>web@devolaper.com</div>
+        <div>web@developer.ru</div>
       </div>
       <div>
         <div>
-			{city}, {' '}
-			{new Date().toLocaleString('ru', {day: 'numeric', month: 'long'})}
-			</div>
+          {city},{" "}
+          {new Date().toLocaleString("ru", { day: "numeric", month: "long" })}
+        </div>
         <div>
-			{temperature} градусов, {weather}
-		</div>
+          {temperature}&deg;, {weather}
+        </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
 export const Footer = styled(FooterContainer)`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
   width: 1000px;
   height: 120px;
+  background-color: #fff;
   padding: 20px 40px;
-  font-weight: bold;
-  background-color: rgb(255, 255, 255);
-  box-shadow: rgb(0, 0, 0) 0px 3px 11px;
+  box-shadow: 0 2px 18px #000;
 `;

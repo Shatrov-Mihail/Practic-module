@@ -12,4 +12,4 @@ export const addPost = ({ imageUrl, title, content }) =>
       published_at: generateDate(),
       content,
     }),
-  }) .then((createdPost) => createdPost.json());
+  }).then((creadetPost) => creadetPost.json());

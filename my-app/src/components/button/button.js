@@ -1,27 +1,22 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const ButtonContainer = ({ children, className, width, ...props }) => {
-  return (
-    <button className={className} {...props}>
-      {children}
-    </button>
-  );
-};
+const ButtonContainer = ({ children, className, width, ...props }) => (
+  <button className={className} {...props}>
+    {children}
+  </button>
+);
 
 export const Button = styled(ButtonContainer)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 18px;
+  background-color: #eee;
+  border: 1px solid #000;
+  padding: 5px 15px;
   width: ${({ width = "100%" }) => width};
-  hight: 32px;
-  border: 1px solid rgb(0, 0, 0);
-  background-color: rgb(238, 238, 238);
+  cursor: pointer;
 
-
-  &:hover {
-	  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
+  &:disabled {
+    cursor: default;
   }
 `;
 

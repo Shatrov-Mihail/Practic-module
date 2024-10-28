@@ -6,6 +6,6 @@ export const addSession = (hash, user) =>
     },
     body: JSON.stringify({
       hash,
-      user: user,
+      user,
     }),
   });

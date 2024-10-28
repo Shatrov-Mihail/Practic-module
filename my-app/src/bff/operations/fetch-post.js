@@ -18,10 +18,13 @@ export const fetchPost = async (postId) => {
     };
   }
 
-  const commentsWithAuthor = getPostCommentsWithAuthor(postId);
+  const commentsWithAuthor = await getPostCommentsWithAuthor(postId);
 
   return {
     error: null,
-    res: { ...post, comments: commentsWithAuthor },
+    res: {
+      ...post,
+      comments: commentsWithAuthor,
+    },
   };
 };

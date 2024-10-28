@@ -6,7 +6,7 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-   font-size: 18px;
+  font-size: 18px;
 `;
 
 export const Error = ({ error }) =>
@@ -15,8 +15,8 @@ export const Error = ({ error }) =>
       <H2>Ошибка</H2>
       <div>{error}</div>
     </Div>
-  )
+  );
 
 Error.propTypes = {
   error: PROP_TYPE.ERROR,
-}
+};

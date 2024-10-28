@@ -43,23 +43,11 @@ const CommentContainer = ({
       <div className="comment">
         <div className="information-panel">
           <div className="author">
-            <Icon
-              inactive={true}
-              id="fa-user-circle-o"
-              margin="0 10px 0 0"
-              size="18px"
-              onClick={() => {}}
-            />
+            <Icon id="user-circle-o" size="18px" />
             {author}
           </div>
           <div className="published-at">
-            <Icon
-              inactive={true}
-              id="fa-calendar-o"
-              margin="0 10px 0 0"
-              size="18px"
-              onClick={() => {}}
-            />
+            <Icon id="calendar-o" size="18px" />
             {publishedAt}
           </div>
         </div>
@@ -67,9 +55,9 @@ const CommentContainer = ({
       </div>
       {isAdminOrModerator && (
         <Icon
-          id="fa-trash-o"
+          isButton={true}
+          id="trash-o"
           size="21px"
-          margin="0 0 0 10px"
           onClick={() => onCommentRemove(id)}
         />
       )}
@@ -106,4 +94,4 @@ Comment.propTypes = {
   author: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   publishedAt: PropTypes.string.isRequired,
-}
+};

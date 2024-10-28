@@ -1,16 +1,17 @@
-import { useMemo, useEffect, useState } from "react";
-import { Pagination, Search, PostCard } from "./components";
+import { useEffect, useMemo, useState } from "react";
 import { useServerRequest } from "../../hooks";
 import { debounce, getLastPageFromLinks } from "./utils";
 import { PAGINATION_LIMIT } from "../../constants";
+import { Pagination, PostCard, Search } from "./components";
 import styled from "styled-components";
 
 const MainContainer = ({ className }) => {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
   const [searchPhrase, setSearchPhrase] = useState("");
   const [shouldSearch, setShouldSearch] = useState(false);
-  const [lastPage, setLastPage] = useState(1);
+
   const requestServer = useServerRequest();
 
   useEffect(() => {
@@ -32,8 +33,8 @@ const MainContainer = ({ className }) => {
 
   return (
     <div className={className}>
-      <div className="posts-and-search">
-        <Search searchPhrase={searchPhrase} onSearch={onSearch} />
+      <div>
+        <Search searchPhrase={searchPhrase} onChange={onSearch} />
         {posts.length > 0 ? (
           <div className="post-list">
             {posts.map(
@@ -53,7 +54,6 @@ const MainContainer = ({ className }) => {
           <div className="no-posts-found">Статьи не найдены</div>
         )}
       </div>
-
       {lastPage > 1 && posts.length > 0 && (
         <Pagination page={page} lastPage={lastPage} setPage={setPage} />
       )}
@@ -65,16 +65,19 @@ export const Main = styled(MainContainer)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: calc(100vh - 280px);
 
   & .post-list {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px 20px 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 40px;
   }
 
   & .no-posts-found {
-    text-align: center;
     font-size: 18px;
+    font-weight: 500;
+    text-align: center;
     margin-top: 40px;
   }
 `;

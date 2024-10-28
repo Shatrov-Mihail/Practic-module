@@ -12,4 +12,4 @@ export const addComment = (userId, postId, content) =>
       published_at: generateDate(),
       content,
     }),
-  })
+  });

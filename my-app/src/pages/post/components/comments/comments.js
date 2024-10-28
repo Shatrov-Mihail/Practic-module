@@ -34,9 +34,9 @@ const CommentsContainer = ({ className, comments, postId }) => {
             onChange={({ target }) => setNewComment(target.value)}
           ></textarea>
           <Icon
-            id="fa-paper-plane-o"
-            margin="0 0 0 10px"
-            size="18px"
+            isButton={true}
+            id="paper-plane-o"
+            size="21px"
             onClick={() => onNewCommentAdd(userId, postId, newComment)}
           />
         </div>

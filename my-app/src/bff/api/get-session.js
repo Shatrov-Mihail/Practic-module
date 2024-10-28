@@ -1,6 +1,6 @@
-import { transformSession } from "../transformers";
+import { transformUser } from "../transformers";
 
-export const getSession = async(hash) =>
-	fetch(`http://localhost:3005/sessions?hash=${hash}`)
-		.then((loadedSession) => loadedSession.json())
-		.then(([loadedSession]) => loadedSession && transformSession(loadedSession))
+export const getUser = async (loginToFind) =>
+  fetch(`http://localhost:3005/users?login=${loginToFind}`)
+    .then((loadedUser) => loadedUser.json())
+    .then(([loadedUser]) => loadedUser && transformUser(loadedUser));

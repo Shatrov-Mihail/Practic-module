@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import { Button } from "../button/button";
 import {
+  selectModalIsOpen,
   selectModalOnCancel,
   selectModalOnConfirm,
   selectModalText,
-  selectModalIsOpen,
 } from "../../selectors";
+import { Button } from "../button/button";
 import styled from "styled-components";
 
 const ModalContainer = ({ className }) => {
@@ -14,9 +14,7 @@ const ModalContainer = ({ className }) => {
   const onConfirm = useSelector(selectModalOnConfirm);
   const onCancel = useSelector(selectModalOnCancel);
 
-  if (!isOpen) {
-    return null;
-  }
+  if (!isOpen) return null;
 
   return (
     <div className={className}>
@@ -37,40 +35,38 @@ const ModalContainer = ({ className }) => {
 };
 
 export const Modal = styled(ModalContainer)`
-position: fixed;
-z-index: 20;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
 
-& .overlay {
-width: 100%;
-height: 100%;
-background-color: rgba(0,0,0,0.7);
-position: absolute;
-}
+  & .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
 
-& .box {
+  & .box {
+    text-align: center;
+    background: #fff;
+    border: 3px solid #000;
+    padding: 0 20px 20px;
+    width: 400px;
+    position: relative;
+    z-index: 30;
+  }
 
-width: 400px;
-position: relative;
-z-index: 30;
-top: 50%;
-transform: translateY(0, -50%);
-margin: 0 auto;
-background-color: #fff;
-padding: 5px 20px 20px;
-border: 2px solid #000;
-
-text-align: center;
-}
-
-& .buttons {
-display: flex;
-justify-content: center;
-}
-
-& .buttons button {
-margin: 0 5px;
+  & .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
 `;

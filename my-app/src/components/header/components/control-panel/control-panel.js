@@ -1,20 +1,21 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Button, Icon } from "../../../../components";
-import styled from "styled-components";
 import { ROLE } from "../../../../constants";
 import {
-  selectUserLogin,
   selectUserRole,
+  selectUserLogin,
   selectUserSession,
 } from "../../../../selectors";
 import { logout } from "../../../../actions";
 import { checkAccess } from "../../../../utils";
+import styled from "styled-components";
 
 const RightAligned = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 15px;
 `;
 
 const UserName = styled.div`
@@ -46,23 +47,19 @@ const ControlPanelContainer = ({ className }) => {
         ) : (
           <>
             <UserName>{login}</UserName>
-            <Icon id="fa-sign-out" margin="0 0 0 10px" onClick={onLogout} />
+            <Icon isButton={true} id="sign-out" onClick={onLogout} />
           </>
         )}
       </RightAligned>
       <RightAligned>
-        <Icon
-          id="fa-backward"
-          margin="10px 0 0 0"
-          onClick={() => navigate(-1)}
-        />
+        <Icon isButton={true} id="backward" onClick={() => navigate(-1)} />
         {isAdmin && (
           <>
-            <Link to="/post">
-              <Icon id="fa-file-text-o" margin="10px 0 0 16px" />
+            <Link to="post">
+              <Icon isButton={true} id="file-text-o" />
             </Link>
-            <Link to="/users">
-              <Icon id="fa-users" margin="10px 0 0 16px" />
+            <Link to="users">
+              <Icon isButton={true} id="users" />
             </Link>
           </>
         )}
@@ -71,4 +68,8 @@ const ControlPanelContainer = ({ className }) => {
   );
 };
 
-export const ControlPanel = styled(ControlPanelContainer)``;
+export const ControlPanel = styled(ControlPanelContainer)`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;

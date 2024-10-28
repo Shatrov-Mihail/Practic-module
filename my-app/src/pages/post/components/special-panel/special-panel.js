@@ -11,8 +11,8 @@ import styled from "styled-components";
 
 const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const requestServer = useServerRequest();
+  const navigate = useNavigate();
   const userRole = useSelector(selectUserRole);
 
   const onPostRemove = (id) => {
@@ -20,9 +20,9 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
       openModal({
         text: "Удалить статью?",
         onConfirm: () => {
-          dispatch(removePostAsync(requestServer, id)).then(() => {
-            navigate("/");
-          });
+          dispatch(removePostAsync(requestServer, id)).then(() =>
+            navigate("/")
+          );
           dispatch(CLOSE_MODAL);
         },
         onCancel: () => dispatch(CLOSE_MODAL),
@@ -35,14 +35,7 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
   return (
     <div className={className}>
       <div className="published-at">
-        {publishedAt && (
-          <Icon
-            inactive={true}
-            id="fa-calendar-o"
-            margin="0 7px 0 0"
-            size="18px"
-          />
-        )}
+        {publishedAt && <Icon id="calendar-o" size="18px" />}
         {publishedAt}
       </div>
       {isAdmin && (
@@ -50,9 +43,9 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
           {editButton}
           {publishedAt && (
             <Icon
-              id="fa-trash-o"
+              isButton={true}
+              id="trash-o"
               size="21px"
-              margin="0 0 0 7px"
               onClick={() => onPostRemove(id)}
             />
           )}

@@ -131,6 +131,13 @@
       "title": "vot",
       "published_at": "2054-03-14 07:55",
       "content": "jdtyjtykjhjmufyhkm"
+    },
+    {
+      "id": "18ea",
+      "image_url": "https://i.pravatar.cc/279",
+      "title": "Новая Статья",
+      "published_at": "2062-08-22 04:16",
+      "content": "Текст для новой статьи выглядит так"
     }
   ],
   "comments": [
@@ -191,116 +198,5 @@
       "content": "ndtyyum"
     }
   ],
-  "sessions": [
-    {
-      "id": "acb3",
-      "hash": "0.48312140436956463318551868724171072244644165039063",
-      "user": {
-        "id": "001",
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "2050-09-22",
-        "roleId": 0
-      }
-    },
-    {
-      "id": "8d6c",
-      "hash": "0.16038453594894686027316765830619260668754577636719",
-      "user": {
-        "id": "001",
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "2050-09-22",
-        "roleId": 0
-      }
-    },
-    {
-      "id": "3a20",
-      "hash": "0.32770978980316489703739080141531303524971008300781",
-      "user": {
-        "id": "001",
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "2050-09-22",
-        "roleId": 0
-      }
-    },
-    {
-      "id": "bb97",
-      "hash": "0.64742181319782066140078313765116035938262939453125",
-      "user": {
-        "id": "001",
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "2050-09-22",
-        "roleId": 0
-      }
-    },
-    {
-      "id": "f3e0",
-      "hash": "0.98772545380830534256233477208297699689865112304688",
-      "user": {
-        "id": "001",
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "2050-09-22",
-        "roleId": 0
-      }
-    },
-    {
-      "id": "b320",
-      "hash": "0.47019797332027213343508265097625553607940673828125",
-      "user": {
-        "id": "001",
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "2050-09-22",
-        "roleId": 0
-      }
-    },
-    {
-      "id": "f971",
-      "hash": "0.36380172799888277346269660483812913298606872558594",
-      "user": {
-        "id": "001",
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "2050-09-22",
-        "roleId": 0
-      }
-    },
-    {
-      "id": "8acb",
-      "hash": "0.55656302402010049412695025239372625946998596191406",
-      "user": {
-        "id": "001",
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "2050-09-22",
-        "roleId": 0
-      }
-    },
-    {
-      "id": "69c7",
-      "hash": "0.08830828562382952995335472223814576864242553710938",
-      "user": {
-        "id": "001",
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "2050-09-22",
-        "roleId": 0
-      }
-    },
-    {
-      "id": "87f4",
-      "hash": "0.08093041072995288409686054365010932087898254394531",
-      "user": {
-        "id": "001",
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "2050-09-22",
-        "roleId": 0
-      }
-    }
-  ]
+  "sessions": []
 }
